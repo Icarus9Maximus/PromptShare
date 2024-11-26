@@ -9,7 +9,7 @@ const EditPrompt = () => {
     const router = useRouter();
     // const searchParams = useSearchParams();
     // const promptId = searchParams.get("id");
-    const promptid = 1;
+    // const promptid = 1;
 
     const [submitting, setIsSubmitting] = useState(false);
     const [post, setPost] = useState({
@@ -17,46 +17,46 @@ const EditPrompt = () => {
         tag: "",
     });
 
-    useEffect(() => {
-        const getPromptDetails = async () => {
-            const response = await fetch(`/api/prompt/${promptId}`);
-            const data = await response.json();
+    // useEffect(() => {
+    //     const getPromptDetails = async () => {
+    //         const response = await fetch(`/api/prompt/${promptId}`);
+    //         const data = await response.json();
 
-            setPost({
-                prompt: data.prompt,
-                tag: data.tag
-            });
-        };
+    //         setPost({
+    //             prompt: data.prompt,
+    //             tag: data.tag
+    //         });
+    //     };
 
-        if (promptId) getPromptDetails();
-    }, [promptId])
+        // if (promptId) getPromptDetails();
+    // }, [promptId])
 
     const updatePrompt = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        if (!promptId) return alert("Prompt ID not found");
+        // if (!promptId) return alert("Prompt ID not found");
 
-        try {
-            const response = await fetch(`/api/prompt/${promptId}`, {
-                method: "PATCH",
-                body: JSON.stringify({
-                    prompt: post.prompt,
-                    // userId: session?.user.id,
-                    tag: post.tag
-                })
-            })
+        // try {
+        //     const response = await fetch(`/api/prompt/${promptId}`, {
+        //         method: "PATCH",
+        //         body: JSON.stringify({
+        //             prompt: post.prompt,
+        //             // userId: session?.user.id,
+        //             tag: post.tag
+        //         })
+        //     })
 
-            if (response.ok) {
-                router.push("/");
-                // push to the homepage
-            }
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setIsSubmitting(false);
-        }
-    }
+        //     if (response.ok) {
+        //         router.push("/");
+        //         // push to the homepage
+        //     }
+        // } catch (error) {
+        //     console.log(error);
+        // } finally {
+        //     setIsSubmitting(false);
+        // }
+    // }
 
   return (
     <Form 
