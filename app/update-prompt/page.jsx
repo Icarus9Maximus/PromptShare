@@ -8,7 +8,8 @@ import Form from "@components/Form";
 const EditPrompt = () => {
     const router = useRouter();
     // const searchParams = useSearchParams();
-    const promptId = searchParams.get("id");
+    // const promptId = searchParams.get("id");
+    const promptid = 1;
 
     const [submitting, setIsSubmitting] = useState(false);
     const [post, setPost] = useState({
